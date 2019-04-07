@@ -86,10 +86,14 @@ function printPartTable($data) {
 function printPrices($prices) {
 	sort($prices);
 	$cprices = count($prices);
-	echo "<br/>Минимальная цена: ". $prices[0];
-	echo "<br/>Средняя цена: " . array_sum($prices) / $cprices;
-	echo "<br/>Медианная цена: " . $prices[$cprices/2];
-	echo "<br/>Максимальная цена: " . $prices[$cprices-1];
+	if($cprices > 0) {
+		echo "<br/>Минимальная цена: ". $prices[0];
+		echo "<br/>Средняя цена: " . array_sum($prices) / $cprices;
+		echo "<br/>Медианная цена: " . $prices[$cprices/2];
+		echo "<br/>Максимальная цена: " . $prices[$cprices-1];
+	} else {
+		echo "<br/>Цен не найдено";
+	}
 }
 
 /**
